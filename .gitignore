@@ -1,3 +1,6 @@
+# ignoredb
+utils/resource.json
+
 # Logs
 logs
 *.log
