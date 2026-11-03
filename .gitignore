@@ -1,5 +1,7 @@
 # JSON data files
 utils/resources.json
+# ignoredb
+utils/resource.json
 
 # Logs
 logs
