@@ -9,9 +9,14 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 app.use(express.static("./public"));
 
-const { viewResources } = require('./utils/ViewResourceUtil');
+const { editResource } = require('./utils/EditResourceUtil.js');
+app.put('/edit-resource/:id', editResource);
+const { deleteResource } = require('./utils/DeleteResourceUtil.js');
+app.delete('/delete-resource/:id', deleteResource);
+
+const { viewResources } = require('./utils/ViewResourceUtil.js');
 app.get('/view-resources', viewResources);
-const { addResource } = require('./utils/AddResourceUtil')
+const { addResource } = require('./utils/AddResourceUtil.js')
 app.post('/add-resource', addResource);
 
 app.get('/', (req, res) => {
