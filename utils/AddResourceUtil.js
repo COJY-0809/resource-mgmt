@@ -11,6 +11,7 @@ async function addResource(req, res) {
         const newResource = new Resource(name, location, description, owner);
 
         let resources = [];
+
         try {
             // Try reading the existing resources.json
             const data = await fs.readFile(RESOURCES_FILE, 'utf8');
@@ -27,7 +28,12 @@ async function addResource(req, res) {
 
         // Add new resource and save to file
         resources.push(newResource);
-        await fs.writeFile(RESOURCES_FILE, JSON.stringify(resources, null, 2), 'utf8');
+
+        await fs.writeFile(
+            RESOURCES_FILE,
+            JSON.stringify(resources, null, 2),
+            'utf8'
+        );
 
         return res.status(201).json(resources);
     } catch (error) {
